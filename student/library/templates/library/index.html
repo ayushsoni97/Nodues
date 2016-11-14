@@ -1,0 +1,10 @@
+{% if students_list %}
+    <ul>
+        {% for Student in students_list %}
+            <li><a href="{% url 'library:detail' Student.id %}">{{ Student.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+<p>No students are enrolled here.</p>
+{% endif %}

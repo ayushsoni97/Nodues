@@ -1,0 +1,12 @@
+<h1>{{ student.name }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'library:vote' student.id %}" method="post">
+    {% csrf_token %}
+    {% for choice in student.Choice_set.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}"/>
+    <label for="choice{{ forloop.counter }}">{{ choice.clear }}</label><br/>
+    {% endfor %}
+<input type="submit" value="vote" />
+</form>
