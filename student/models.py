@@ -10,13 +10,6 @@ class credentials(models.Model):
     password = models.CharField(max_length=50)
     department = models.CharField(max_length=50)
     hostel = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.username
-
-
-class checkbox(models.Model):
-    name = models.ForeignKey(credentials, on_delete=models.CASCADE)
     caretaker = models.IntegerField(default=0)
     warden = models.IntegerField(default=0)
     gym_vp = models.IntegerField(default=0)
@@ -31,8 +24,7 @@ class checkbox(models.Model):
     accounts_head = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.name.username
+        return self.username
 
 
 
-# Create your models here.
